@@ -1,20 +1,6 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Users, Award, Briefcase, Target, Heart, Globe, Zap, BarChart3 } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
-
-const serviceData = [
-  { name: 'Research & Consulting', value: 12 },
-  { name: 'Audit & Taxation', value: 8 },
-  { name: 'General Services', value: 8 }
-];
-
-const growthData = [
-  { year: '2024 Q1', clients: 5 },
-  { year: '2024 Q2', clients: 12 },
-  { year: '2024 Q3', clients: 28 },
-  { year: '2024 Q4', clients: 45 }
-];
+import { Users, Award, Briefcase, Heart, Globe, Zap } from 'lucide-react';
 
 const timeline = [
   {
@@ -169,59 +155,6 @@ export default function AboutPage() {
           </div>
         </div>
       </motion.section>
-
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Growth & <span className="text-emerald-600">Impact</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg"
-            >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Service Distribution</h3>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={serviceData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Bar dataKey="value" fill="#059669" />
-                </BarChart>
-              </ResponsiveContainer>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg"
-            >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Client Growth 2024</h3>
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={growthData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="year" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="clients" stroke="#059669" strokeWidth={3} dot={{ fill: '#059669', r: 6 }} />
-                </LineChart>
-              </ResponsiveContainer>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
