@@ -68,7 +68,7 @@ export default function CoreValues() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+    <section id="values" className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden scroll-mt-20">
       <motion.div
         className="absolute top-0 right-0 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
         animate={{

@@ -3,7 +3,6 @@ import About from '../components/About';
 import CoreValues from '../components/CoreValues';
 import HumanResource from '../components/HumanResource';
 import Services from '../components/Services';
-import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 
@@ -15,7 +14,6 @@ export default function Home() {
       <CoreValues />
       <HumanResource />
       <Services />
-      <Testimonials />
       <FAQ />
       <Contact />
     </div>

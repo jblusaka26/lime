@@ -52,10 +52,10 @@ const serviceCategories = [
     icon: Briefcase,
     title: 'General Service Delivery',
     description: 'Wide array of services enhancing business growth, operational efficiency, and stakeholder engagement.',
-    color: 'from-amber-500 to-orange-600',
-    bgColor: 'from-amber-50 to-orange-100',
-    borderColor: 'border-amber-200',
-    accentColor: 'amber',
+    color: 'from-teal-500 to-teal-600',
+    bgColor: 'from-teal-50 to-teal-100',
+    borderColor: 'border-teal-200',
+    accentColor: 'teal',
     services: [
       { title: 'Marketing Services', desc: 'Strategies and campaigns for brand awareness' },
       { title: 'Web Development', desc: 'Responsive websites for digital presence' },
@@ -73,7 +73,7 @@ export default function Services() {
   const [expandedCategory, setExpandedCategory] = useState<string | null>('research');
 
   return (
-    <section id="services" className="py-24 bg-white overflow-hidden">
+    <section id="services" className="py-24 bg-white overflow-hidden scroll-mt-20">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

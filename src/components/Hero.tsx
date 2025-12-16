@@ -29,11 +29,6 @@ export default function Hero() {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToAbout = () => {
-    const element = document.getElementById('about');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -137,7 +132,7 @@ export default function Hero() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
         >
           <span className="text-gray-900">StarLime Consultant &</span>
           <br />
@@ -231,7 +226,7 @@ export default function Hero() {
           </motion.button>
 
           <motion.button
-            onClick={scrollToAbout}
+            onClick={() => navigate('/about')}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-white/80 backdrop-blur-sm border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-emerald-600 hover:text-emerald-600 shadow-lg hover:shadow-xl transition-all duration-300"

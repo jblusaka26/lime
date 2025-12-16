@@ -6,7 +6,7 @@ export default function About() {
   const navigate = useNavigate();
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-br from-white to-emerald-50">
+    <section id="about" className="py-24 bg-gradient-to-br from-white to-emerald-50 scroll-mt-20">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

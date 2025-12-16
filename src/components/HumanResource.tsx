@@ -1,28 +1,17 @@
 import { motion } from 'framer-motion';
-import { Globe, GraduationCap, Users, Award, Brain, Target, TrendingUp } from 'lucide-react';
+import { Globe, GraduationCap, Users, Award } from 'lucide-react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 
-const expertiseStats = [
-  { label: 'PhD Level', value: '30%', icon: GraduationCap, color: 'from-emerald-500 to-emerald-600' },
-  { label: 'Masters', value: '40%', icon: Brain, color: 'from-teal-500 to-teal-600' },
-  { label: 'Bachelors', value: '30%', icon: Target, color: 'from-emerald-500 to-teal-600' }
+const qualificationData = [
+  { name: 'PhD & Postdoctoral', value: 30, color: '#059669' },
+  { name: 'Masters Degree', value: 40, color: '#0d9488' },
+  { name: 'Bachelors Degree', value: 30, color: '#10b981' }
 ];
 
 export default function HumanResource() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <motion.div
-        className="absolute top-0 right-0 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="team" className="py-24 bg-white scroll-mt-20">
+      <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,49 +34,29 @@ export default function HumanResource() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
           >
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Expertise by Qualification</h3>
-              <div className="space-y-6">
-                {expertiseStats.map((stat, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    whileHover={{ scale: 1.03, x: 8 }}
-                    className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 flex items-center gap-4"
+            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 h-full">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Global Expertise Distribution</h3>
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={qualificationData}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="value"
                   >
-                    <motion.div
-                      className={`w-16 h-16 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <stat.icon className="text-white" size={28} />
-                    </motion.div>
-                    <div className="flex-1">
-                      <div className="text-sm font-semibold text-gray-600 mb-1">{stat.label}</div>
-                      <motion.div
-                        className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ type: "spring", delay: idx * 0.1 + 0.3 }}
-                      >
-                        {stat.value}
-                      </motion.div>
-                    </div>
-                    <motion.div
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <TrendingUp className="text-emerald-600" size={24} />
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
+                    {qualificationData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
             </div>
           </motion.div>
 
